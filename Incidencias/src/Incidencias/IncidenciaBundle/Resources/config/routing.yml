@@ -1,0 +1,3 @@
+incidencias_incidencia_homepage:
+    pattern:  /informar
+    defaults: { _controller: IncidenciasIncidenciaBundle:Default:index }

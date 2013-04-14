@@ -1,0 +1,7 @@
+parameters:
+#    incidencias_backend.example.class: Incidencias\BackendBundle\Example
+
+services:
+#    incidencias_backend.example:
+#        class: %incidencias_backend.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

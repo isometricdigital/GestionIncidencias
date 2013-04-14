@@ -1,0 +1,3 @@
+incidencias_backend_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: IncidenciasBackendBundle:Default:index }

@@ -45,22 +45,6 @@ create database db_incidencias;
 		constraint id_empleado_fk foreign key (idEmpleado) references empleados(id)
 		)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-	
-
-	create table incidenciasCompletadas(
-		idIncidencia bigint not null,
-		asunto varchar(50) character set utf8 not null,
-		descripcion varchar(255) character set utf8 not null,
-		fecha date, 
-		imagen varchar(255) character set utf8,
-		solucion varchar(255) character set utf8,
-		idEstado bigint not null,
-		idEmpleado varchar(9) not null,
-		constraint primary key(idIncidencia),
-		constraint id_estadoCompletadas_fk foreign key (idEstado) references estados(id),
-		constraint id_empleadoCompletadas_fk foreign key (idEmpleado) references empleados(id)
-		)ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 /*INSERCIÓN DE DATOS*/
 
@@ -74,9 +58,6 @@ insert into empleados (id, nombre, correo, idDepartamento) values ('54778899E', 
 
 /*Uno de nuestros empleados será el encargado*/
 insert into encargados (idEncargado, usuario, clave) values ('54778899E', 'user', 'user')
-
-
-
 
 insert into incidencias (asunto, descripcion, fecha, idEmpleado) values ('No puedo imprimir', 'Intento....', '2013-03-18', '54226578F')
 

@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+{% block body %}<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right"></div>
+            <a href="{{ path('incidencias_backend_list_incidencia') }}" class="brand">
+                <img src="{{ asset('bundles/backend/img/logo.png') }}" alt="Logo">
+            </a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Incidencias <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{{ path('incidencias_backend_list_incidencia') }}">Ver incidencias</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row-fluid">
+    <div class="content span12">
+        <div class="row-fluid">
+            <div class="sonata-ba-list span10">
+
+    {% block cuerpo %} {% endblock %}
+
+            </div>            
+        </div>        
+    </div>    
+</div>
+{%endblock %}

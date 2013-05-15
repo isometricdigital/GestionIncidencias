@@ -1,13 +1,9 @@
 incidencias_incidencia:
-    resource: "@IncidenciasIncidenciaBundle/Resources/config/routing.yml"
-    prefix:   /
-
-incidencias_frontend:
-    resource: "@IncidenciasFrontendBundle/Resources/config/routing.yml"
+    resource: "@IncidenciaBundle/Resources/config/routing.yml"
     prefix:   /
 
 incidencias_backend:
-    resource: "@IncidenciasBackendBundle/Resources/config/routing.yml"
+    resource: "@BackendBundle/Resources/config/routing.yml"
     prefix:   /
 
 # Internal routing configuration to handle ESI

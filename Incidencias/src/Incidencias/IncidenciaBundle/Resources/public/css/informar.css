@@ -1,0 +1,22 @@
+/* 
+    Document   : informar
+    Created on : Apr 20, 2013, 11:38:37 AM
+    Author     : tuguu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+    background-color: #08C;
+}
+form{
+    margin: 0px auto;
+    width: 100%;
+    height: 100%;
+}
+html{
+    
+    background-color: #08C;
+}
+

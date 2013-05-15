@@ -1,3 +1,27 @@
-incidencias_backend_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: IncidenciasBackendBundle:Default:index }
+incidencias_backend_list_incidencia:
+    pattern:  /backend
+    defaults: { _controller: BackendBundle:Incidencia:portada }
+
+incidencias_backend_edit_incidencia:
+    pattern:  /backend/incidencia/{id}
+    defaults: { _controller: BackendBundle:Incidencia:getUpdate }
+    
+incidencias_backend_save_incidencia:
+    pattern:  /backend/incidencia/{id}/save
+    defaults: { _controller: BackendBundle:Incidencia:update }
+    
+incidencias_show_image:
+    pattern:  /backend/image/{id}
+    defaults: { _controller: BackendBundle:Incidencia:showImage }
+    
+incidencias_backend_list_empleado:
+    pattern:  /backend/empleado
+    defaults: { _controller: BackendBundle:Empleado:portada }
+
+incidencias_backend_edit_empleado:
+    pattern:  /backend/empleado/{id}
+    defaults: { _controller: BackendBundle:Empleado:getUpdate }
+    
+incidencias_backend_save_empleado:
+    pattern:  /backend/empleado/{id}/save
+    defaults: { _controller: BackendBundle:Empleado:update }

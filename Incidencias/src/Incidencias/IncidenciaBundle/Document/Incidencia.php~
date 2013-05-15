@@ -39,7 +39,7 @@ class Incidencia {
      */
     protected $descripcion;
     /**
-     * @MongoDB\String
+     * @MongoDB\ReferenceOne(targetDocument="Image")
      */
     protected $imagen;
     /**
@@ -149,27 +149,7 @@ class Incidencia {
         return $this->descripcion;
     }
 
-    /**
-     * Set imagen
-     *
-     * @param string $imagen
-     * @return \Incidencia
-     */
-    public function setImagen($imagen)
-    {
-        $this->imagen = $imagen;
-        return $this;
-    }
-
-    /**
-     * Get imagen
-     *
-     * @return string $imagen
-     */
-    public function getImagen()
-    {
-        return $this->imagen;
-    }
+ 
 
     /**
      * Set solucion
@@ -213,5 +193,27 @@ class Incidencia {
     public function getFecha()
     {
         return $this->fecha;
+    }
+
+    /**
+     * Set imagen
+     *
+     * @param Incidencias\IncidenciaBundle\Document\Image $imagen
+     * @return \Incidencia
+     */
+    public function setImagen(\Incidencias\IncidenciaBundle\Document\Image $imagen)
+    {
+        $this->imagen = $imagen;
+        return $this;
+    }
+
+    /**
+     * Get imagen
+     *
+     * @return Incidencias\IncidenciaBundle\Document\Image $imagen
+     */
+    public function getImagen()
+    {
+        return $this->imagen;
     }
 }

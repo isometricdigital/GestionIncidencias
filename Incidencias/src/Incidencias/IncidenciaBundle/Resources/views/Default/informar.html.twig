@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="content span12">
+        <form id="formIncidencia" class="form-horizontal" method="post" action="{{path('incidencias_incidencia_response')}}" enctype="multipart/form-data">
+            <div class="control-group">
+                <label class="control-label" for="inAsunto">Asunto</label>
+                <div class="controls">
+                    <input type="text" id="inAsunto" name="inAsunto">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inDNI">DNI</label>
+                <div class="controls">
+                    <input type="text" id="inDNI" name="inDNI">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inDescripcion">Descripcion</label>
+                <div class="controls">
+                    <textarea rows="10" id="inDescripcion" name="inDescripcion"></textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inImagen">Foto</label>
+                <div class="controls">
+                    <input type="file" id="inImagen" name="inImagen">
+                    <div class="form-actions">
+                        <button type="button" class="btn">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{%endblock %}

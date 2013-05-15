@@ -13,5 +13,3 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
-    path_for_save_images: /var/www/Symfony/GestionIncidencias/Incidencias/web/images/
-    path_for_show_images:  /Symfony/GestionIncidencias/Incidencias/web/images/

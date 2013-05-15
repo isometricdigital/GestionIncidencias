@@ -1,0 +1,43 @@
+{% extends 'BackendBundle:Default:backend.html.twig' %}
+{% block cuerpo %}
+<table class="table table-bordered table-striped" >
+    <thead>
+        <tr class="sonata-ba-list-field-header">
+            <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch">Estado</th> 
+            <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch">Asunto</th>
+            <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch">Descripcion</th>
+            <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch">Fecha</th>
+            <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch">Empleado nombre</th>
+            <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch">Imagen</th>
+            <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch">Solucion</th>
+        </tr>
+    </thead> 
+    <tbody>
+        {% for incidencia in incidencias %} 
+             {%if incidencia.estado.nombre=='Completada'%}<tr class="error">{% endif %}
+            {%if incidencia.estado.nombre=='Pendiente'%}<tr class="success">{% endif %}
+            {%if incidencia.estado.nombre is sameas('Solicitada')%}<tr class="info">{% endif %}
+                <td>{{ incidencia.estado.nombre }}</td>
+                <td>{{ incidencia.asunto }}</td>
+                <td>{{ incidencia.descripcion }}</td>
+                <td>{{ incidencia.fecha|date('d-M-Y H:i:sP') }}</td>
+                <td>{{ incidencia.empleado.nombre }}</td>
+                <td>{%if incidencia.imagen is defined and incidencia.imagen is not null%}
+                    <a class="btn sonata-action-element" href="{{ path('incidencias_show_image', { 'id': incidencia.imagen.id }) }}">
+                        <i class="icon-zoom-in"></i> Ver
+                    </a>
+                {% endif %}</td>
+                <td>{{ incidencia.solucion }}</td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn sonata-action-element" href="{{ path('incidencias_backend_edit_incidencia', { 'id': incidencia.id }) }}">
+                            <i class="icon-edit"></i> Edit
+                        </a>
+                    </div>
+                </td>
+
+            </tr>
+        {% endfor %} 
+        </tbody>
+    </table>
+{%endblock %}

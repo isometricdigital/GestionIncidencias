@@ -1,0 +1,49 @@
+{% extends 'BackendBundle:Default:backend.html.twig' %}
+{% block cuerpo %}
+<div class="container-fluid">
+    <div class="content span12">
+        <form  class="form-horizontal" method="post" action="{{path('incidencias_backend_save_incidencia', { 'id': incidencia.id} )}}" enctype="multipart/form-data">
+            <div class="control-group">
+                <label class="control-label" for="inAsunto">Asunto</label>
+                <div class="controls">
+                    <input type="text" id="inAsunto" name="inAsunto" value="{{incidencia.asunto}}">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inDescripcion">Descripcion</label>
+                <div class="controls">
+                    <textarea rows="10" id="inDescripcion" name="inDescripcion" >{{incidencia.descripcion}}</textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inSolucion">Solucion</label>
+                <div class="controls">
+                    <textarea rows="10" id="inDescripcion" name="inSolucion"> {{incidencia.solucion}}"</textarea>
+                </div>
+            </div>
+            <div class="control-group">
+{%if incidencia.imagen is defined and incidencia.imagen is not null%}
+                    <img src="{{incidencia.imagen.relativePath}}"><br>
+{%endif%}
+                    <label class="control-label" for="inImagen">Foto</label>
+                    <div class="controls">
+                        <input type="file" id="inImagen" name="inImagen"><br>
+                            <label class="radio inline">
+                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="Pendiente"
+                                       {%if incidencia.estado.nombre=='Pendiente'%}checked{%endif%}>
+                                    Pendiente
+                            </label>
+                            <label class="radio inline">
+                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="Completada"
+                                       {%if incidencia.estado.nombre=='Completada'%}checked{%endif%}>
+                                    Finalizada
+                            </label>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{%endblock %}

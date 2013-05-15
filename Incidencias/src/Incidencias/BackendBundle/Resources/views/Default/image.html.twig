@@ -1,0 +1,7 @@
+{% extends 'BackendBundle:Default:backend.html.twig' %}
+{% block cuerpo %}
+<img src="{{imagen.relativePath}}"><br>
+<a class="btn sonata-action-element" href="{{ path('incidencias_backend_list_incidencia')}}">
+    Volver
+</a>
+{%endblock %}

@@ -1,3 +1,6 @@
 incidencias_incidencia_homepage:
-    pattern:  /informar
-    defaults: { _controller: IncidenciasIncidenciaBundle:Default:index }
+    pattern:  /
+    defaults: { _controller: IncidenciaBundle:Default:index }
+incidencias_incidencia_response:
+    pattern:  /enviar
+    defaults: { _controller: IncidenciaBundle:Default:enviarIncidencia }

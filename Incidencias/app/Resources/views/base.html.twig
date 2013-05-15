@@ -2,12 +2,80 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
+        <title>{% block title %}Gestion de incidencias Symfony2{% endblock %}</title>
+        {% block stylesheets %}
+
+
+
+        <link rel="stylesheet" href="{{ asset('bundles/backend/css/sonataadmin-bootstrap.min.css') }}" type="text/css" media="all"/>
+        <link rel="stylesheet" href="{{ asset('bundles/backend/css/sonataadmin-bootstrap-responsive.min.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/backend/css/sonataadmin-layout.min.css') }}" media="all" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
+
+        <style>
+                thead
+                {
+                    background: #eeeeee;
+                    background: -moz-linear-gradient(top,  #eeeeee 0%, #aaaaaa 100%);
+                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#aaaaaa));
+                    background: -webkit-linear-gradient(top,  #eeeeee 0%,#aaaaaa 100%);
+                    background: -o-linear-gradient(top,  #eeeeee 0%,#aaaaaa 100%);
+                    background: -ms-linear-gradient(top,  #eeeeee 0%,#aaaaaa 100%);
+                    background: linear-gradient(to bottom,  #eeeeee 0%,#aaaaaa 100%);
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#aaaaaa',GradientType=0 );
+                }
+
+
+            </style>
+{% endblock %} {% block javascripts %}
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+            <script src="//www.datatables.net/download/build/jquery.dataTables.js"></script> <!--paguinación -->
+
+            <script type="text/javascript" src="{{ asset('bundles/backend/js/sonataadmin-bootstrap.min.js') }}"></script> 
+            <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function()
+                {
+    // Validation
+                    $("#formIncidencia").validate({
+                        rules: {
+                            inAsunto: {required: true, minlength: 10},
+                            inDNI: {required: true, minlength: 9, maxlength: 9},
+                            inDescripcion: {required: true}
+                        },
+                        messages: {
+                            inAsunto: {
+                                required: "Debe introducir un asunto",
+                                minlength: "El asunto debe tener al menos 10 caracteres"},
+                            inDNI: {
+                                required: "El dni es obligatorio",
+                                minlength: "Un dni valido debe constar de 9 caracteres",
+                                maxlength: "Un dni valido debe constar de 9 caracteres"},
+                            inDescripcion: {
+                                required: "Introduce una minima descripcion de la incidencia"}
+                        },
+                        errorClass: "help-inline",
+                        errorElement: "span",
+                        highlight: function(element, errorClass, validClass)
+                        {
+                            $(element).parents('.control-group').addClass('error');
+                        },
+                        unhighlight: function(element, errorClass, validClass)
+                        {
+                            $(element).parents('.control-group').removeClass('error');
+                            $(element).parents('.control-group').addClass('success');
+                        }
+                    });
+                });
+                </script>
+            {% endblock %}
+                </head>
+                <body class="sonata-bc">
+
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+
+
+                    </body>
+                </html>

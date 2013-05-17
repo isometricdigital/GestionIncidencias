@@ -1,0 +1,40 @@
+{% extends 'BackendBundle:Default:backend.html.twig' %}
+{% block cuerpo %}
+<table class="table table-bordered table-striped" >
+    <thead>
+        <tr class="sonata-ba-list-field-header">
+            <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch">Dni</th> 
+            <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch">Nombre</th> 
+            <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch">Correo</th>
+            <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch">Departamento</th>
+            <th></th>
+        </tr>
+    </thead> 
+    <tbody>
+        {% for empleado in empleados %} 
+            <tr>
+                <td>{{ empleado.dni }}</td>
+                <td>{{ empleado.nombre }}</td>
+                <td>{{ empleado.correo }}</td>
+                <td>{{ empleado.departamento.nombre}}</td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn sonata-action-element" href="{{ path('incidencias_backend_edit_empleado', { 'id': empleado.id }) }}">
+                            <i class="icon-edit"></i> Editar
+                        </a>
+                        <a class="btn sonata-action-element" href="{{ path('incidencias_backend_delete_empleado', { 'id': empleado.id }) }}">
+                            <i class="icon-remove"></i> Borrar
+                        </a>
+                    </div>
+                </td>
+
+            </tr>
+        {% endfor %} 
+        </tbody>
+    </table>
+    <div class="btn-group">
+        <a class="btn sonata-action-element" href="{{ path('incidencias_backend_create_empleado') }}">
+            <i class="icon-plus"></i> Añadir 
+        </a>
+    </div>
+{%endblock %}

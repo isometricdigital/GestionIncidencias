@@ -1,0 +1,48 @@
+{% extends 'BackendBundle:Default:backend.html.twig' %}
+{% block cuerpo %}
+<div class="container-fluid">
+    <div class="content span12">
+        {%if empleado is defined and empleado is not null%}
+        <form  id="formEmpleado" class="form-horizontal" method="post" action="{{path('incidencias_backend_save_empleado', { 'id': empleado.id} )}}" enctype="multipart/form-data">
+         {%else%}       
+                <form  id="formEmpleado" class="form-horizontal" method="post" action="{{path('incidencias_backend_save_empleado')}}" enctype="multipart/form-data">
+                    <div class="control-group">
+                        <label class="control-label" for="inDni">Dni</label>
+                <div class="controls">
+                    <input type="text" id="inDni" name="inDni">
+                </div>
+            </div>
+                {%endif%}
+                <div class="control-group">
+                <label class="control-label" for="inNombre">Nombre</label>
+                <div class="controls">
+                    <input type="text" id="inNombre" name="inNombre" value=" {%if empleado is defined and empleado is not null%}{{empleado.nombre}}{%endif%}">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inCorreo">Email</label>
+                <div class="controls">
+                    <input type="email" id="inCorreo" name="inCorreo" value=" {%if empleado is defined and empleado is not null%}{{empleado.correo}}{%endif%}">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inDepartamento">Departamento</label>
+                <div class="controls">
+                    <select id="inDepartamento" name="inDepartamento" class="span3">
+                        {%for departamento in departamentos%}
+                            <option value="{{departamento.id}}" 
+ {%if empleado is defined and empleado is not null and empleado.departamento.id==departamento.id%}selected="selected"{%endif%}>
+{{departamento.nombre}}</option>
+                            {%endfor%}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">{%if empleado is defined and empleado is not null%}Actualizar{%else%}Crear{%endif%}</button>
+                    </div>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+{%endblock %}

@@ -14,7 +14,7 @@ class DefaultController extends Controller {
     public function enviarIncidenciaAction() {
         $dni = $this->getRequest()->request->get('inDNI');
         $mongo = $this->get('my_mongo');
-        $empleado = $mongo->getEmpleado($dni);
+        $empleado = $mongo->getEmpleadoByDni($dni);
         $mensaje = "El dni insertado no esta registrado como empleado";
         if ($empleado) {
             $asunto = $this->getRequest()->request->get('inAsunto');

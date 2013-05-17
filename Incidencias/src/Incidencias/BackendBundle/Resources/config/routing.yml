@@ -14,14 +14,24 @@ incidencias_show_image:
     pattern:  /backend/image/{id}
     defaults: { _controller: BackendBundle:Incidencia:showImage }
     
+    
+    
+    
 incidencias_backend_list_empleado:
     pattern:  /backend/empleado
     defaults: { _controller: BackendBundle:Empleado:portada }
 
+incidencias_backend_create_empleado:
+    pattern:  /backend/empleado/create
+    defaults: { _controller: BackendBundle:Empleado:getCreate }
+
 incidencias_backend_edit_empleado:
-    pattern:  /backend/empleado/{id}
+    pattern:  /backend/empleado/{id}/edit
     defaults: { _controller: BackendBundle:Empleado:getUpdate }
+incidencias_backend_delete_empleado:
+    pattern:  /backend/empleado/{id}/delete
+    defaults: { _controller: BackendBundle:Empleado:delete }
     
 incidencias_backend_save_empleado:
-    pattern:  /backend/empleado/{id}/save
-    defaults: { _controller: BackendBundle:Empleado:update }
+    pattern:  /backend/empleado/save/{id}
+    defaults: { _controller: BackendBundle:Empleado:update ,id:-1}

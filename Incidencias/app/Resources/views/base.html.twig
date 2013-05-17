@@ -34,9 +34,9 @@
             <script src="//www.datatables.net/download/build/jquery.dataTables.js"></script> <!--paguinación -->
 
             <script type="text/javascript" src="{{ asset('bundles/backend/js/sonataadmin-bootstrap.min.js') }}"></script> 
+
             <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
-            <script type="text/javascript">
-                $(document).ready(function()
+                <script  > $(document).ready(function()
                 {
     // Validation
                     $("#formIncidencia").validate({
@@ -68,8 +68,42 @@
                             $(element).parents('.control-group').addClass('success');
                         }
                     });
-                });
-                </script>
+                    
+                    
+                    $("#formEmpleado").validate({
+                        rules: {
+                            inNombre: {required: true, minlength: 2},
+                            inEmail: {required: true, email: true},
+                            inDNI: {required: true, minlength: 9, maxlength: 9},
+                            inDepartamento: {required: true}
+                        },
+                        messages: {
+                            inNombre: {
+                                required: "Debe introducir un nombre",
+                                minlength: "El nombre debe tener al menos 2 caracteres"},
+                            inEmail: {
+                                required: "Debe introducir un email de contacto",
+                                email: "El formato del email no es valido"},
+                            inDNI: {
+                                required: "El dni es obligatorio",
+                                minlength: "Un dni valido debe constar de 9 caracteres",
+                                maxlength: "Un dni valido debe constar de 9 caracteres"},
+                            inDepartamento: {
+                                required: "Debe seleccionar un departamento de la lista"}
+                        },
+                        errorClass: "help-inline",
+                        errorElement: "span",
+                        highlight: function(element, errorClass, validClass)
+                        {
+                            $(element).parents('.control-group').addClass('error');
+                        },
+                        unhighlight: function(element, errorClass, validClass)
+                        {
+                            $(element).parents('.control-group').removeClass('error');
+                            $(element).parents('.control-group').addClass('success');
+                        }
+                    });
+                });</script>
             {% endblock %}
                 </head>
                 <body class="sonata-bc">

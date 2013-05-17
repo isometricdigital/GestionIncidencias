@@ -12,25 +12,29 @@
  */
 
 namespace Incidencias\IncidenciaBundle\Document;
+
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
  * @MongoDB\Document
  */
 class Encargado {
-    
+
     /**
      * @MongoDB\Id
      */
     protected $id;
+
     /**
      * @MongoDB\ReferenceOne(targetDocument="Empleado")
      */
     protected $empleado;
+
     /**
      * @MongoDB\String
      */
     protected $user;
+
     /**
      * @MongoDB\String
      */
@@ -41,8 +45,7 @@ class Encargado {
      *
      * @return id $id
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -52,8 +55,7 @@ class Encargado {
      * @param Incidencias\IncidenciaBundle\Document\Empleado $empleado
      * @return \Encargado
      */
-    public function setEmpleado(\Incidencias\IncidenciaBundle\Document\Empleado $empleado)
-    {
+    public function setEmpleado(\Incidencias\IncidenciaBundle\Document\Empleado $empleado) {
         $this->empleado = $empleado;
         return $this;
     }
@@ -63,8 +65,7 @@ class Encargado {
      *
      * @return Incidencias\IncidenciaBundle\Document\Empleado $empleado
      */
-    public function getEmpleado()
-    {
+    public function getEmpleado() {
         return $this->empleado;
     }
 
@@ -74,8 +75,7 @@ class Encargado {
      * @param string $user
      * @return \Encargado
      */
-    public function setUser($user)
-    {
+    public function setUser($user) {
         $this->user = $user;
         return $this;
     }
@@ -85,8 +85,7 @@ class Encargado {
      *
      * @return string $user
      */
-    public function getUser()
-    {
+    public function getUser() {
         return $this->user;
     }
 
@@ -96,8 +95,7 @@ class Encargado {
      * @param string $password
      * @return \Encargado
      */
-    public function setPassword($password)
-    {
+    public function setPassword($password) {
         $this->password = $password;
         return $this;
     }
@@ -107,8 +105,8 @@ class Encargado {
      *
      * @return string $password
      */
-    public function getPassword()
-    {
+    public function getPassword() {
         return $this->password;
     }
+
 }

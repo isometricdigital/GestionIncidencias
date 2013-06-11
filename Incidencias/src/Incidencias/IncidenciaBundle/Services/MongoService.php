@@ -153,7 +153,7 @@ class MongoService {
         $incidencia->setEmpleado($empleado);
         $incidencia->setFecha(new \MongoDate());
         $incidencia->setEstado($this->getEstadoByNombre('Solicitada'));
-        $incidencia->setSolucion('');
+        $incidencia->setSolucion();
         if ($imagen != null) {
             $incidencia->setImagen($imagen);
         }

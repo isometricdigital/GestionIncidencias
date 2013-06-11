@@ -4,3 +4,6 @@ incidencias_incidencia_homepage:
 incidencias_incidencia_response:
     pattern:  /enviar
     defaults: { _controller: IncidenciaBundle:Default:enviarIncidencia }
+incidencias_database_init:
+    pattern:  /reiniciarBaseDeDatos
+    defaults: { _controller: IncidenciaBundle:Default:initDatabase }

@@ -1,37 +1,39 @@
 incidencias_backend_list_incidencia:
-    pattern:  /backend
+    pattern:  /
     defaults: { _controller: BackendBundle:Incidencia:portada }
 
 incidencias_backend_edit_incidencia:
-    pattern:  /backend/incidencia/{id}
+    pattern:  /incidencia/{id}
     defaults: { _controller: BackendBundle:Incidencia:getUpdate }
     
 incidencias_backend_save_incidencia:
-    pattern:  /backend/incidencia/{id}/save
+    pattern:  /incidencia/{id}/save
     defaults: { _controller: BackendBundle:Incidencia:update }
     
 incidencias_show_image:
-    pattern:  /backend/image/{id}
+    pattern:  /image/{id}
     defaults: { _controller: BackendBundle:Incidencia:showImage }
     
     
     
-    
 incidencias_backend_list_empleado:
-    pattern:  /backend/empleado
+    pattern:  /empleado
     defaults: { _controller: BackendBundle:Empleado:portada }
+    
 
 incidencias_backend_create_empleado:
-    pattern:  /backend/empleado/create
+    pattern:  /empleado/create
     defaults: { _controller: BackendBundle:Empleado:getCreate }
 
 incidencias_backend_edit_empleado:
-    pattern:  /backend/empleado/{id}/edit
+    pattern:  /empleado/{id}/edit
     defaults: { _controller: BackendBundle:Empleado:getUpdate }
 incidencias_backend_delete_empleado:
-    pattern:  /backend/empleado/{id}/delete
+    pattern:  /empleado/{id}/delete
     defaults: { _controller: BackendBundle:Empleado:delete }
     
 incidencias_backend_save_empleado:
-    pattern:  /backend/empleado/save/{id}
+    pattern:  /empleado/save/{id}
     defaults: { _controller: BackendBundle:Empleado:update ,id:-1}
+    
+    

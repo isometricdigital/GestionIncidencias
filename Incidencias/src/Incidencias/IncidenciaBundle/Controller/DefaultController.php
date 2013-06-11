@@ -10,7 +10,13 @@ class DefaultController extends Controller {
     public function indexAction() {
         return $this->render('IncidenciaBundle:Default:informar.html.twig');
     }
-
+    
+    public function initDatabaseAction(){
+        $mongo = $this->get('my_mongo');
+        $mongo->initValues();
+        return $this->render('IncidenciaBundle:Default:informar.html.twig');
+    }
+    
     public function enviarIncidenciaAction() {
         $dni = $this->getRequest()->request->get('inDNI');
         $mongo = $this->get('my_mongo');
